@@ -1,0 +1,45 @@
+RewriteEngine on
+Options -Indexes
+
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+DirectoryIndex index.php
+RewriteRule ^admin/(.*)$ admin/$1 [L]
+
+#RewriteRule ^water/([0-9]+)x([0-9]+)x([0-9]+)/(.*)$  #timthumb_w.php?src=http://%{HTTP_HOST}/09-2018/vuduchien/$4&h=$2&w=$1&zc=$3&q=80&wm=1&wl=3&wmr=2
+
+#RewriteRule ^upload/sanpham/(.*\.(jp?g|gif|png))$ watermark.php?image=$1 [L]
+#RewriteRule ^thumb/([0-9]+)x([0-9]+)/([0-9]+)/(.*)$ timthumb_watermark.php?w=$1&h=$2&zc=$3&q=100&src=http://%{HTTP_HOST}/$4  [L]
+
+RewriteRule ^([0-9]+)x([0-9]+)/([0-9]+)/(.*)$ timthumb.php?w=$1&h=$2&zc=$3&q=85&src=$4  [L]
+
+ErrorDocument 404 /404.php
+
+RewriteRule ^admin$ admin/index.php [L]
+RewriteRule ^admin/$ admin/index.php [L]
+
+RewriteRule ^&p=([0-9]+)$ index.php?&p=$1  [L]
+
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)-([0-9]+).html$ index.php?com=$1&id=$3  [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)-([0-9]+).html&p=([0-9]+)$ index.php?com=$1&id=$3&p=$4  [L]
+
+RewriteRule ^([a-zA-Z0-9_-]+).html$ index.php?com=$1  [L]
+RewriteRule ^([a-zA-Z0-9_-]+).html&p=([0-9]+)$ index.php?com=$1&p=$2  [L]
+
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)-([0-9]+).html$ index.php?com=$1&id=$3  [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)-([0-9]+).html&p=([0-9]+)$ index.php?com=$1&id=$2&p=$4  [L]
+
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)-([0-9]+)$ index.php?com=$1&id_danhmuc=$3  [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)-([0-9]+)&p=([0-9]+)$ index.php?com=$1&id_danhmuc=$3&p=$4  [L]
+
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)-([0-9]+)/$ index.php?com=$1&id_list=$3  [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)-([0-9]+)/&p=([0-9]+)$ index.php?com=$1&id_list=$3&p=$4  [L]
+
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([0-9]+)$ index.php?com=$1&id_cat=$3  [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([0-9]+)&p=([0-9]+)$ index.php?com=$1&id_cat=$3&p=$4  [L]
+
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([0-9]+).html$ index.php?com=$1&id_item=$3  [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([0-9]+).html&p=([0-9]+)$ index.php?com=$1&id_item=$3&p=$4  [L]
+
+RewriteRule ^([a-zA-Z0-9_-]+).html&keyword=(.*)$ index.php?com=$1&keyword=$2  [L]
+RewriteRule ^([a-zA-Z0-9_-]+).html&keyword=(.*)&p=([0-9]+)$ index.php?com=$1&keyword=$2&p=$3  [L]
