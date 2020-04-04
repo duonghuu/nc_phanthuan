@@ -38,14 +38,17 @@ include_once _lib."functions_layout.php";
 include_once _lib."file_requick.php";
 include_once _source."counter.php";	
 include_once _source."custom.php"; 
-
+if(!isset($_SESSION["dong"])){
+    $_SESSION["dong"] = get_photo_static('logo');
+}
 ?>
 <!doctype html>
 <html lang="vi">
 <head itemscope itemtype="<?=$https?>schema.org/WebSite">
     <base href="<?=$https?><?=$config_url?>/" />
     <link rel="canonical" href="<?=getCurrentPageURL_CANO()?>" />  
-    
+    <link rel="manifest" href="/manifest.json">
+    <?php include "oneSignal.php"; ?>
     <?php if($deviceType =='phone'){?>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=1" />
     <?php } else { ?>

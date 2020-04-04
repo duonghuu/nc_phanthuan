@@ -63,6 +63,7 @@
      <ul class="sub">
         <?php phanquyen_menu('Cập nhật share facebook index','background','capnhat','share'); ?>
         <?php phanquyen_menu('Cập nhật logo','background','capnhat','logo'); ?>
+        <?php phanquyen_menu('Cập nhật logo đóng dấu','background','capnhat','dong'); ?>
         <?php phanquyen_menu('Cập nhật banner','background','capnhat','banner'); ?>
         <?php phanquyen_menu('Cập nhật background header','background','capnhat','bg-header'); ?>
         <?php phanquyen_menu('Cập nhật background footer','background','capnhat','bg-footer'); ?>
@@ -79,6 +80,13 @@
     <ul class="sub">
     	<?php phanquyen_menu('Cấu hình thông tin Website','company','capnhat',''); ?>
          <li<?php if($_GET['act']=='admin_edit') echo ' class="this"' ?>><a href="index.php?com=user&act=admin_edit">Quản lý Tài Khoản</a></li>
+    </ul>
+</li>
+
+<li class="categories_li setting_li <?php if($_GET['com']=='company') echo ' activemenu' ?>" id="menu_cptb">
+    <a href="" title="" class="exp"><span>Thông báo đẩy tin</span><strong></strong></a>
+    <ul class="sub">
+        <?php phanquyen_menu('Thông báo đẩy tin','pushOnesignal','man',''); ?>
     </ul>
 </li>
 </ul>

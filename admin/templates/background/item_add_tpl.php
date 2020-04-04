@@ -45,6 +45,7 @@
                     <img src="./images/question-button.png" alt="Upload hình" class="icon_question tipS" original-title="Tải hình ảnh (ảnh JPEG, GIF , JPG , PNG)">
                     <?php if($_REQUEST['type']=='banner') { ?><span class="size_img">Chiều rộng <b>auto</b> Chiều cao: <b>110px</b></span><?php } ?>
                     <?php if($_REQUEST['type']=='pupop') { ?><span class="size_img">Chiều rộng <b>800px</b> Chiều cao: <b>auto</b></span><?php } ?>
+                    <?php if($_REQUEST['type']=='dong') { ?><span class="size_img">Chiều rộng <b>500px</b> Chiều cao: <b>400</b></span><?php } ?>
                 </div>
                 <div class="clear"></div>
              </div> 

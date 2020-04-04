@@ -3,19 +3,35 @@
     <div id="right">
         <div class="box-detail flex flex-wrap">
         <div class="img-detail">
-            <a class="MagicZoom" id="zoom" href="<?=_upload_sanpham_l.$row_detail['photo']?>" >
-                <img src="500x400/1/<?=_upload_sanpham_l.$row_detail['photo']?>" />
+            <?php 
+            $img = "thumb2/500x400/1/"._upload_sanpham_l.$row_detail['photo'];
+             ?>
+            <a class="MagicZoom" id="zoom" href="<?= $img ?>" >
+                
+                <img src="<?= $img ?>" /> 
             </a>
             
             <?php if(count($hinhthem)>0) { ?>
                 <div class="sub-img">
+                    <a data-zoom-id="zoom" href="<?= $img ?>">
+                        <img src="<?= $img ?>" />
+                    </a> 
+                    <?php /* 
                     <a data-zoom-id="zoom" href="<?=_upload_sanpham_l.$row_detail['photo']?>">
-                        <img src="500x400/1/<?=_upload_sanpham_l.$row_detail['photo']?>" />
-                    </a>
-                    <?php for($i=0; $i<count($hinhthem); $i++) { ?>
+                                                                <img src="500x400/1/<?=_upload_sanpham_l.$row_detail['photo']?>" />
+                                                            </a>  
+                    */?>
+                    <?php for($i=0; $i<count($hinhthem); $i++) {
+                        $img = "thumb2/500x400/1/"._upload_hinhthem_l.$hinhthem[$i]['photo'];
+                     ?>
+                        <a data-zoom-id="zoom" href="<?= $img ?>">
+                            <img src="<?= $img ?>" />
+                        </a> 
+                        <?php /* 
                         <a data-zoom-id="zoom" href="<?=_upload_hinhthem_l.$hinhthem[$i]['photo']?>">
                             <img src="500x400/1/<?=_upload_hinhthem_l.$hinhthem[$i]['photo']?>" />
-                        </a>
+                        </a>  
+                        */?>
                     <?php } ?>
                 </div>
             <?php } ?>

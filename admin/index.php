@@ -34,6 +34,10 @@
 	
 	switch($com){
 		####Phân quyền
+		case 'pushOnesignal':
+			$source = "pushOnesignal";
+			break;
+		
 		case 'comment':
 			$source = "comment";
 			break;
@@ -234,7 +238,6 @@
 			$template = "index";
 			break;
 	}
-
 	if(checkPermission()==false && $act!="login"){
 		redirect("index.php?com=user&act=login");
 	}
@@ -321,7 +324,7 @@
 <script>var base_url = 'http://<?=$config_url?>';  </script>
 </head>
 <?php if(isset($_SESSION[$login_name_admin]) && ($_SESSION[$login_name_admin] == true)){?> 
-<body>
+<body data-tit="<?= $source."_"._template.$template ?>">
 <span class="vui"></span>
 <div class="baophu"></div>
 <script type="text/javascript">
